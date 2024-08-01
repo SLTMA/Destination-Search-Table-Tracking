@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awesome Table with GA Tracking</title>
+    <!-- Google Analytics tracking code -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-08YWVTH52R"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-08YWVTH52R');
+    </script>
+</head>
+<body>
+    <!-- Your Awesome Table embed code -->
+    <<iframe referrerpolicy="no-referrer-when-downgrade" height="600px" width="100%" style="border:none;" src="https://view-awesome-table.com/-MvVjcusTgKqu93ODBh0/view"></iframe>></iframe>
+
+    <!-- JavaScript to track searches -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var iframe = document.getElementById('awesomeTable');
+            iframe.onload = function() {
+                var innerDoc = iframe.contentDocument || iframe.contentWindow.document;
+                var searchInput = innerDoc.querySelector('input[type="search"]'); // Adjust this selector based on your search input element
+
+                if (searchInput) {
+                    searchInput.addEventListener('input', function() {
+                        var searchTerm = searchInput.value;
+                        gtag('event', 'search', {
+                            'event_category': 'Awesome Table',
+                            'event_label': searchTerm
+                        });
+                    });
+                }
+            };
+        });
+    </script>
+</body>
+</html>
